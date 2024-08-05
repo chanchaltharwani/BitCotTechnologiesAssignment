@@ -42,7 +42,7 @@ ShowRepository: Fetches data from the API using Retrofit.
 ApiInterface: Defines the API endpoints.
 
 
-Dependencies
+Dependencies:
 
 
 Retrofit: For network operations.

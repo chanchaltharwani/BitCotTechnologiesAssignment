@@ -6,11 +6,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.Response
 import java.io.IOException
+import javax.inject.Inject
+
 /**
  * Repository class that handles data operations for TV shows.
  * Acts as a mediator between the ViewModel and the API interface.
  */
-class ShowRepository(private val apiInterface: ApiInterface) {
+class ShowRepository @Inject constructor(private val apiInterface: ApiInterface) {
 
     suspend fun searchShows(query: String): Response<List<ShowResponseModelItem>> {
         return withContext(Dispatchers.IO) {

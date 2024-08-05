@@ -55,7 +55,8 @@ class ShowAdapter(private var shows: List<ShowResponseModelItem?>) :
             originalShows
         } else {
             originalShows.filter {
-                it?.show?.genres?.any { g -> g?.equals(genre, ignoreCase = true) == true } == true
+                // it?.show?.genres?.any { g -> g?.equals(genre, ignoreCase = true) == true } == true
+                it?.show?.genres?.any { g -> g?.contains(genre, ignoreCase = true) == true } == true
             }
         }
         notifyDataSetChanged()

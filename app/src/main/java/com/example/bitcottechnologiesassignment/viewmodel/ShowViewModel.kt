@@ -7,13 +7,17 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.bitcottechnologiesassignment.model.ShowResponseModelItem
 import com.example.bitcottechnologiesassignment.repository.ShowRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
+
 /**
  * ViewModel for managing UI-related data for TV shows in a lifecycle-conscious way.
  * Connects the repository to the UI and handles data fetching and error management.
  */
-class ShowViewModel(private val repository: ShowRepository) : ViewModel() {
+@HiltViewModel
+class ShowViewModel @Inject constructor(private val repository: ShowRepository) : ViewModel() {
     // LiveData to hold the list of TV shows
     private val _shows = MutableLiveData<List<ShowResponseModelItem>>()
     val shows: LiveData<List<ShowResponseModelItem>> get() = _shows
